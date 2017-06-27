@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sections</title>
+    <link rel="stylesheet" href="css/sections.css" />
+</head>
+<div id="content">
+</div>
+<body onload="create(['Section 1', 'Section 2', 'Section 3', 'Section 4']);">
+<script>
+    function create(sentences) {
+        let baseDiv = document.getElementById('content');
+
+        for (let sentence of sentences) {
+            let newDiv = document.createElement('div');
+            newDiv.addEventListener('click', onClick);
+            let newParagraph = document.createElement('p');
+            newParagraph.style.display = 'none';
+            newParagraph.textContent = sentence;
+            newDiv.appendChild(newParagraph);
+            baseDiv.appendChild(newDiv);
+        }
+
+        function onClick(event) {
+            let paragraph = event.target.firstChild;
+            paragraph.style.display = 'inline';
+        }
+    }
+</script>
+</body>
+</html>
